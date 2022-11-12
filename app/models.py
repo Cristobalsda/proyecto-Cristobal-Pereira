@@ -18,8 +18,10 @@ class Socio(models.Model):
     anoNacimiento = models.DateField()
     telefono = models.IntegerField()
     correo = models.EmailField(validators=[validate_email])
-    sexo = models.CharField(max_length=20, choices=Sexo, default="F")
-    # estado = models.CharField(max_length=20)
+    sexo = models.CharField(
+        max_length=20, 
+        choices=Sexo, 
+        default="F")
     estado = models.CharField(
         max_length = 20,
         choices = Estado,
