@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body class="container mt-5">
+        <div class="alert alert-success d-1">Listado socios</div>
+
+        {% if socios %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha Incorpoacion</th>
+                    <th>Año de Nacimiento</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Sexo</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for socios in socios %}
+                <tr>
+                    <td>{{socios.nombre}}</td>
+                    <td>{{socios.fechaIncorporacion}}</td>
+                    <td>{{socios.anoNacimiento}}</td>
+                    <td>{{socios.telefono}}</td>
+                    <td>{{socios.correo}}</td>
+                    <td>{{socios.sexo}}</td>
+                    <td>{{socios.estado}}</td>
+                    <td><a href="/actualizar/{{socios.id}}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="/eliminar/{{socios.id}}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="alert alert-info">No hay proyectos que mostrar</div>
+        {% endif %}
+
+    <a href="../" class="btn btn-danger">Volver</a>
+    <a href="../agregar" class="btn btn-info float-end">Agregar Socio</a>
+    </body>
+</html>
